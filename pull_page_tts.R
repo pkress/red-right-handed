@@ -81,4 +81,5 @@ make_mp3 = function(d){
   system(paste0("cat ", outdir, "/*.mp3 > ", outdir, "/full.mp3"))
   
 }
-make_mp3(rrh_data[11])
+
+lapply(1:11, \(x){make_mp3(rrh_data[x])})
