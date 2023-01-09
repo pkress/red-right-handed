@@ -81,7 +81,7 @@ pull_page = function(page_url){
   ## Basic info
   issue_num = title_block[1] %>% 
     str_extract(".{0,} /") %>% 
-    str_extract("\\d") %>% 
+    str_extract("\\d+") %>% 
     as.numeric()
   
   issue_month = title_block[1] %>% 
@@ -174,4 +174,4 @@ pull_page = function(page_url){
 out_pages = lapply(base_url%p%all_pages, pull_page) %>% 
   rbindlist()
 
-fwrite(out_pages, "Documents/personal_projects/red_right_handed/red_hand_files.csv")
+fwrite(out_pages, "./red_right_handed/red_hand_files.csv")
